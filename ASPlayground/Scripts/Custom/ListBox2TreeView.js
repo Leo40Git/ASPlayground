@@ -61,7 +61,7 @@ function ListBox2TreeView(select, options) {
         if (options.createCheckboxIDCallback) {
             cb.id = options.createCheckboxIDCallback(_targetContainer, _select, option, i);
         } else {
-            cb.id = (_select.id || _targetContainer.id || 'tv') + '_cb' + i;
+            cb.id = (_targetContainer.id || _select.id || 'lb2tv') + '_cb' + i;
         }
 
         cb.onchange = function (evt) {
