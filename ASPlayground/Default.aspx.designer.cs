@@ -15,66 +15,21 @@ namespace ASPlayground
     {
 
         /// <summary>
-        /// Scripts control.
+        /// lbTest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManagerProxy Scripts;
+        protected global::System.Web.UI.WebControls.ListBox lbTest;
 
         /// <summary>
-        /// OperationsRoot control.
+        /// lblSelected control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel OperationsRoot;
-
-        /// <summary>
-        /// mvOperations control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.MultiView mvOperations;
-
-        /// <summary>
-        /// Operations_Menu control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View Operations_Menu;
-
-        /// <summary>
-        /// Operations_One control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View Operations_One;
-
-        /// <summary>
-        /// Operations_Two control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View Operations_Two;
-
-        /// <summary>
-        /// Operations_Three control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.View Operations_Three;
+        protected global::System.Web.UI.WebControls.Label lblSelected;
     }
 }

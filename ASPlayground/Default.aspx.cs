@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -9,30 +10,40 @@ namespace ASPlayground
 {
     public partial class _Default : Page
     {
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(lbTest, typeof(_Default), "init", "lbTest_init();", true);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void mvOperations_ActiveViewChanged(object sender, EventArgs e)
+        protected void lbTest_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string script = "";
-
-            var activeView = mvOperations.GetActiveView();
-            if (activeView == Operations_One)
+            var sb = new StringBuilder();
+            foreach (ListItem li in lbTest.Items)
             {
-                script = "Operations_One_init();";
-            }
-            else if (activeView == Operations_Two)
-            {
-                script = "Operations_Two_init();";
-            }
-            else if (activeView == Operations_Three)
-            {
-                script = "Operations_Three_init();";
+                if (li.Selected)
+                {
+                    sb.Append($"{li.Text} ({li.Value}), ");
+                }
             }
 
-            ScriptManager.RegisterStartupScript(mvOperations, typeof(MultiView), "initView", script, true);
+            if (sb.Length >= 2)
+            {
+                sb.Length -= 2;
+            }
+
+            if (sb.Length == 0)
+            {
+                lblSelected.Text = "No items selected.";
+            }
+            else
+            {
+                lblSelected.Text = "Selected: " + sb;
+            }
         }
     }
 }

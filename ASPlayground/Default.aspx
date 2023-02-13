@@ -2,58 +2,31 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <asp:ScriptManagerProxy ID="Scripts" runat="server" />
+    <asp:ScriptManagerProxy runat="server">
+        <Scripts>
+            <asp:ScriptReference Path="Scripts/Custom/ListBox2TreeView.js" />
+        </Scripts>
+    </asp:ScriptManagerProxy>
 
-    <asp:UpdatePanel ID="OperationsRoot" runat="server" UpdateMode="Conditional">
+    <asp:UpdatePanel runat="server" UpdateMode="Always">
         <ContentTemplate>
-            <asp:MultiView ID="mvOperations" runat="server" ActiveViewIndex="0"
-                OnActiveViewChanged="mvOperations_ActiveViewChanged">
-                <asp:View ID="Operations_Menu" runat="server">
-                    <ul>
-                        <li><asp:LinkButton runat="server"
-                            CommandName="SwitchViewByID" CommandArgument="Operations_One" 
-                            Text="One" /></li>
-                        <li><asp:LinkButton runat="server"
-                            CommandName="SwitchViewByID" CommandArgument="Operations_Two" 
-                            Text="Two" /></li>
-                        <li><asp:LinkButton runat="server"
-                            CommandName="SwitchViewByID" CommandArgument="Operations_Three" 
-                            Text="Three" /></li>
-                    </ul>
-                </asp:View>
-                <asp:View ID="Operations_One" runat="server">
-                    <p>One</p>
-                    <asp:LinkButton runat="server"
-                        CommandName="SwitchViewByID" CommandArgument="Operations_Menu"
-                        Text="Back" />
-                </asp:View>
-                <asp:View ID="Operations_Two" runat="server">
-                    <p>Two</p>
-                    <asp:LinkButton runat="server"
-                        CommandName="SwitchViewByID" CommandArgument="Operations_Menu"
-                        Text="Back" />
-                </asp:View>
-                <asp:View ID="Operations_Three" runat="server">
-                    <p>Three</p>
-                    <asp:LinkButton runat="server"
-                        CommandName="SwitchViewByID" CommandArgument="Operations_Menu"
-                        Text="Back" />
-                </asp:View>
-            </asp:MultiView>
+            <asp:ListBox ID="lbTest" runat="server"
+                SelectionMode="Multiple" AutoPostBack="True"
+                OnSelectedIndexChanged="lbTest_SelectedIndexChanged">
+                <asp:ListItem Text="One" Value="1" />
+                <asp:ListItem Text="Two" Value="2" />
+                <asp:ListItem Text="Three" Value="3" />
+                <asp:ListItem Text="Four" Value="4" />
+                <asp:ListItem Text="Five" Value="5" />
+            </asp:ListBox>
+            <br />
+            <asp:Label ID="lblSelected" runat="server">...</asp:Label>
         </ContentTemplate>
     </asp:UpdatePanel>
 
     <script type="text/javascript">
-        function Operations_One_init() {
-            alert('hello from One');
-        }
-
-        function Operations_Two_init() {
-            alert('hello from Two');
-        }
-
-        function Operations_Three_init() {
-            alert('hello from Three');
+        function lbTest_init() {
+            ListBox2TreeView('<%= lbTest.ClientID %>');
         }
     </script>
 
